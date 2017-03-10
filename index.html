@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h2>Hello world!</h2>
+    <div id="app" v-bind:title="message" v-on:click="seeMe">
+        {{message}}
+        <span v-if="seen">Now you see me</span>
+        <ul>
+            <li v-for="user in user_list">{{user.name}}</li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"Hello Vue",
+                seen:false,
+                user_list:[
+                    {name:'zhangsan'},
+                    {name:'lisi'},
+                    {name:'wangwu'}
+                ]
+            },
+            methods:{
+                seeMe:function(){
+                    this.seen = this.seen ? false : true;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
